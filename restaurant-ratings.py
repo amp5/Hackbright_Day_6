@@ -1,12 +1,14 @@
 # your code goes here
 def rest_ratings(filepath):
     open_file = open(filepath)
-    restaurant_dict = {}
+    restaurants_dict = {}
 
     for line in open_file:
-        line_list = line.rstrip().split(":")
-        restaurant_dict[line_list[0]] = line_list[1]
+        # line_list = line.rstrip().split(":")
+        # restaurant_dict[line_list[0]] = line_list[1]
 
+        restaurant, score = line.rstrip().split(':')
+        restaurants_dict[restaurant] = score
 
     # test passed -- print restaurant_dict
 
@@ -15,9 +17,14 @@ def rest_ratings(filepath):
 
     #print sorted_list
     
-    new_sorted_list = sorted(restaurant_dict.keys())
+    #sorted(restaurant_dict.keys())
 
-    print new_sorted_list
+    for rest_name in sorted(restaurants_dict.keys()):
+        #rating = restaurant_dict.get(k)
+
+    # print new_sorted_list
+
+        print "Restauarant '%s' is rated at %s." % (rest_name, restaurants_dict[rest_name])
 
 
 rest_ratings("scores.txt")
